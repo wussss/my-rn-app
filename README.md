@@ -35,10 +35,10 @@ src
 
 ### commit 说明
 
-feat：新功能 (feature)
-fix：bug 修复(bug fix)
-docs：文档相关 (documentation)
-style：代码格式 (formatting, missing semi colons, …)
-refactor：重构
-test：添加测试(when adding missing tests)
-chore：工具或维护变动 (maintain)
+- feat：新功能 (feature)
+- fix：bug 修复(bug fix)
+- docs：文档相关 (documentation)
+- style：代码格式 (formatting, missing semi colons, …)
+- refactor：重构
+- test：添加测试(when adding missing tests)
+- chore：工具或维护变动 (maintain)
