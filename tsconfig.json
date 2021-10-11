@@ -62,7 +62,7 @@
   "include": [
     "typings/**/*.d.ts",
     "src/**/*.ts",
-    "src/**/*.tsx", "App.tsx",
+    "src/**/*.tsx", "src/App.tsx",
   ],
   "exclude": [
     "node_modules", "babel.config.js", "metro.config.js", "jest.config.js"

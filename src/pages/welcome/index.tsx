@@ -1,24 +1,32 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
+let timer: any = null;
 const styles = StyleSheet.create({
   contain: {
     flex: 1,
-    marginVertical: 60,
+    justifyContent: 'center',
+    alignItems: 'center',
     marginHorizontal: 10,
-    borderWidth: 1,
-    padding: 10,
   },
   text: {
-    color: 'pink',
     fontSize: 30,
-    fontWeight: 'bold' as 'bold',
   },
 });
-const Welcome = () => {
+const Welcome = (props: any) => {
+  useEffect(() => {
+    timer = setTimeout(() => {
+      props.navigation.navigate('hot');
+    }, 2000);
+    return () => {
+      timer && clearTimeout(timer);
+    };
+  }, []);
   return (
     <View style={styles.contain}>
-      <Text style={styles.text}>welcome</Text>
+      <Text style={styles.text}>Welcome to my app!</Text>
+      <Icon name="dog" size={50}></Icon>
     </View>
   );
 };
