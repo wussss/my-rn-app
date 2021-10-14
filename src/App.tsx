@@ -11,7 +11,8 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import MIcon from 'react-native-vector-icons/MaterialIcons';
+import FIcon from 'react-native-vector-icons/FontAwesome';
 
 import routes from './routes';
 
@@ -23,21 +24,19 @@ const App = () => {
       <Tab.Navigator
         initialRouteName="welcome"
         screenOptions={({route}) => ({
-          tabBarIcon: ({focused, color, size}) => {
+          tabBarIcon: ({color, size}) => {
             let iconName = '';
-
-            if (route.name === 'hot') {
-              iconName = focused ? 'flame-outline' : 'flame-outline';
-            } else if (route.name === 'trend') {
-              iconName = focused ? 'airplane-outline' : 'airplane-outline';
-            } else if (route.name === 'star') {
-              iconName = focused ? 'at-outline' : 'at-outline';
-            } else if (route.name === 'my') {
-              iconName = focused
-                ? 'chatbox-ellipses-outline'
-                : 'chatbox-ellipses-outline';
+            if (route.name === 'my') {
+              return <FIcon name="user" size={size} color={color} />;
             }
-            return <Ionicons name={iconName} size={size} color={color} />;
+            if (route.name === 'hot') {
+              iconName = 'whatshot';
+            } else if (route.name === 'trend') {
+              iconName = 'trending-up';
+            } else if (route.name === 'star') {
+              iconName = 'star';
+            }
+            return <MIcon name={iconName} size={size} color={color} />;
           },
           tabBarActiveTintColor: 'blue',
           tabBarInactiveTintColor: 'gray',
