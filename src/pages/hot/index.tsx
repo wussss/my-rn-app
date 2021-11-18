@@ -25,7 +25,7 @@ const Hot = (props: any) => {
       <TouchableOpacity
         style={styles.navigate}
         onPress={() => {
-          navigation.navigate('my');
+          navigation.navigate('trend');
         }}>
         <Text>Go to Next Page </Text>
         <Icon name="arrowright" size={20} color="#5DADE2" />

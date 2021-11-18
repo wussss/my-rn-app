@@ -9,6 +9,15 @@ pod update
 
 ```
 
+### 命令
+
+```
+yarn template 组件模版
+yarn start 启动metro
+yarn ios 运行在ios环境,需要先打开iOS simultor或连接真机
+
+```
+
 ### 技术栈
 
 ```
