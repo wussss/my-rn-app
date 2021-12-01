@@ -1,7 +1,9 @@
-import React, {memo} from 'react';
+import React, {memo, useState} from 'react';
 import Icon from 'react-native-vector-icons/AntDesign';
-import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import {StyleSheet, Text} from 'react-native';
 
+import {FlexView, Input, Button} from '../../components/StyledComp';
+import {fetchGet} from '../../fetch';
 const styles = StyleSheet.create({
   contain: {
     flex: 1,
@@ -19,18 +21,33 @@ const styles = StyleSheet.create({
 });
 const Hot = (props: any) => {
   const {navigation} = props;
+  const [search, setSearch] = useState('');
+  const [res, setRes] = useState<any>('');
+  const goNext = () => {
+    navigation.navigate('trend');
+  };
+  const goSearch = async () => {
+    try {
+      const data = await fetchGet('/search/repositories', {search});
+      setRes(data.items[0].description);
+    } catch (err: any) {
+      setRes(err.message);
+    }
+  };
   return (
-    <View style={styles.contain}>
-      <Text style={styles.text}>This is hot page!</Text>
-      <TouchableOpacity
-        style={styles.navigate}
-        onPress={() => {
-          navigation.navigate('trend');
-        }}>
-        <Text>Go to Next Page </Text>
-        <Icon name="arrowright" size={20} color="#5DADE2" />
-      </TouchableOpacity>
-    </View>
+    <FlexView isPageContainer={true}>
+      <FlexView dir="row">
+        <Input
+          value={search}
+          onChangeText={setSearch}
+          placeholder=" Search or jump to..."
+          clearTextOnFocus={true}
+        />
+        <Icon name="arrowright" size={20} color="#333" />
+      </FlexView>
+      <Text>{res}</Text>
+      <Button title={'查询'} onPress={goSearch}></Button>
+    </FlexView>
   );
 };
 

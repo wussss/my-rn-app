@@ -25,7 +25,7 @@ const App = () => {
     <Provider store={store}>
       <NavigationContainer>
         <Tab.Navigator
-          initialRouteName="my"
+          initialRouteName="hot"
           screenOptions={({route}) => ({
             tabBarIcon: ({color, size}) => {
               let iconName = '';
