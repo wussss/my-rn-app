@@ -1,7 +1,9 @@
 > This project was bootstrapped with React Native Cli
 
 ```
+npx react-native init myRNApp --template react-native-template-typescript
 npx expo init my_app
+or use expo
 
 yarn
 yarn start
