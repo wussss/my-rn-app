@@ -1,11 +1,10 @@
 > This project was bootstrapped with React Native Cli
 
 ```
-npx react-native init myRNApp --template react-native-template-typescript
+npx expo init my_app
 
 yarn
-cd ios
-pod update
+yarn start
 
 ```
 
@@ -14,7 +13,7 @@ pod update
 ```
 yarn template 组件模版
 yarn start 启动metro
-yarn ios 运行在ios环境,需要先打开iOS simultor或连接真机
+
 
 ```
 
